@@ -15,7 +15,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="<?= base_url('template/') ?>plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="<?= base_url('template/') ?>dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="<?= base_url('template/') ?>distt/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -27,7 +27,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
             <div class="container">
                 <a href="<?= base_url('template/') ?>index3.html" class="navbar-brand">
-                    <img src="<?= base_url('template/') ?>dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
+                    <img src="<?= base_url('template/') ?>distt/img/AdminLTELogo.png" alt="AdminLTE Logo"
                         class="brand-image img-circle elevation-3" style="opacity: .8">
                     <span class="brand-text font-weight-light">AdminLTE 3</span>
                 </a>
@@ -116,7 +116,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="card-body box-profile">
                         <div class="text-center">
                             <img class="profile-user-img img-fluid img-circle"
-                                src="<?= base_url('template/') ?>dist/img/user4-128x128.jpg" alt="User profile picture">
+                                src="<?= base_url('template/') ?>distt/img/user4-128x128.jpg"
+                                alt="User profile picture">
                         </div>
 
                         <h3 class="profile-username text-center"><?= session()->get('nim')['nama_lengkap'] ?></h3>
@@ -141,7 +142,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- /.card -->
             </div>
         </aside>
-        <!-- /.control-sidebar -->  
+        <!-- /.control-sidebar -->
 
         <!-- Main Footer -->
         <footer class="main-footer">
@@ -163,7 +164,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Bootstrap 4 -->
     <script src="<?= base_url('template/') ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="<?= base_url('template/') ?>dist/js/adminlte.min.js"></script>
+    <script src="<?= base_url('template/') ?>distt/js/adminlte.min.js"></script>
 </body>
 
 </html>
