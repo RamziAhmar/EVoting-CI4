@@ -15,7 +15,7 @@
     <!-- icheck bootstrap -->
     <link rel="stylesheet" href="<?= base_url('template/') ?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="<?= base_url('template/') ?>dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="<?= base_url('template/') ?>distt/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -31,18 +31,33 @@
                 <p class="login-box-msg">Masuk Akun</p>
 
                 <form action="/login/proses" method="post">
-                    <?= (session()->getFlashdata('errors')) ? '<span class="invalid-feedback">' . session()->getFlashdata('errors') . '</span>' : null ?>
+                    <?= (session()->getFlashdata('error')) ? '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  Email atau Password anda salah!
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>' : null ?>
+                    <?= (session()->getFlashdata('errors')) ? '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  Email dan Password harus diisi!
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>' : null ?>
                     <div class="input-group mb-3">
-                        <input name="email" type="email" class="form-control <?= (session()->getFlashdata('errors')) ? 'is-invalid' : null ?>" placeholder="Email" value="<?= old('email') ?>">
+                        <input name="email" type="email"
+                            class="form-control <?= (session()->getFlashdata('errors')) || session()->getFlashdata('error') ? 'is-invalid' : null ?>"
+                            placeholder="Email" value="<?= old('email') ?>">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
                             </div>
                         </div>
-                        
+
                     </div>
                     <div class="input-group mb-3">
-                        <input name="password" type="password" class="form-control <?= (session()->getFlashdata('errors')) ? 'is-invalid' : null ?>" placeholder="Password" <?= old('password') ?>>
+                        <input name="password" type="password"
+                            class="form-control <?= (session()->getFlashdata('errors')) || session()->getFlashdata('error') ? 'is-invalid' : null ?>"
+                            placeholder="Password" <?= old('password') ?>>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -50,10 +65,10 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <button type="submit" class="btn btn-primary btn-block">Masuk</button>   
+                        <button type="submit" class="btn btn-primary btn-block">Masuk</button>
                     </div>
                     <div class="input-group mb-3">
-                        <a href="/" class="btn btn-danger btn-block">Kembali</a>   
+                        <a href="/" class="btn btn-danger btn-block">Kembali</a>
                     </div>
                 </form>
 

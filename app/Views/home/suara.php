@@ -51,7 +51,6 @@
                             <th style="width: 10px">#</th>
                             <th>Kandidat</th>
                             <th>Perolehan</th>
-                            <th>Persentase</th>
                             <th style="width: 40px">Foto</th>
                         </tr>
                     </thead>
@@ -62,12 +61,6 @@
                                 <td><?= $no++ ?></td>
                                 <td><?= $row['nama_kandidat'] ?><br><?= $row['nama_wakil'] ?></td>
                                 <td><?= $row['jumlah_suara'] ?> suara</td>
-                                <td>
-                                    <div class="progress progress-xs">
-                                        <div class="progress-bar progress-bar-danger" style="width: 100%"></div>
-                                    </div>
-                                    <span class="badge bg-danger">100%</span>
-                                </td>
                                 <td><img width="50px" src="<?= base_url('image/kandidat/') . $row['foto'] ?>" alt=""></td>
                             </tr>
                         <?php } ?>

@@ -26,7 +26,7 @@
                             <td><?= $row->nim ?></td>
                             <td><?= $row->nama_lengkap ?></td>
                             <td><?= $row->nama_pemilihan ?></td>
-                            <td><?= $row->status ?></td>
+                            <td><?= ($row->status == 1) ? 'Telah Memilih' : '' ?></td>
                         </tr>
                     <?php endforeach ?>
                 </tbody>

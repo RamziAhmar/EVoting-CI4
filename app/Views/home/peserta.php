@@ -29,7 +29,7 @@
                             <td><?= $row->nim ?></td>
                             <td><?= $row->nama_lengkap ?></td>
                             <td><?= $row->angkatan ?></td>
-                            <td class="text-center"><img src="<?= base_url('image/profil/') . $row->foto ?>" alt="Hilang"
+                            <td class="text-center"><img src="<?= base_url('image/profil/') . $row->foto ?>" alt="Contoh"
                                     width="50px"></td>
                         </tr>
                     <?php endforeach ?>

@@ -34,4 +34,12 @@ class KandidatModel extends Model
             ->get()
             ->getResult();
     }
+    
+    public function getRiwayat()
+    {
+        return $this->join('pemilihan', 'kandidat.id_pemilihan = pemilihan.id_pemilihan')
+            ->orderBy('pemilihan.id_pemilihan', 'DESC')
+            ->get()
+            ->getResult();
+    }
 }

@@ -46,8 +46,9 @@
                             </small>
                         </td>
                         <td>
-                            <img width="50px" src="<?= base_url('image/kandidat/') . $row->foto ?>" alt="">
-                            <small><?= $row->nama_kandidat ?> & <?= $row->nama_wakil ?></small>
+                            <?php foreach($kandidat as $k) { ?>
+                                <?= $k['nama_kandidat'] ?>
+                            <?php } ?>
                         </td>
                         <td>
                             <?= $row->waktu_selesai ?>

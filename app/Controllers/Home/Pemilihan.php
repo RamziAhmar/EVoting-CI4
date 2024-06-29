@@ -31,11 +31,18 @@ class Pemilihan extends BaseController
     }
     public function index()
     {
-        $riwayat = $this->pemilihan->getRiwayat();
+        $riwayat = $this->pemilihan->getList();
+        $no =1;
+        foreach ($riwayat as $r) {
+            $kandidat = $this->kandidat->find($r->id_pemilihan);
+        }
+
         $data = [
             'title' => 'Pemilihan',
             'pemilihan' => $riwayat,
+            'kandidat' => $kandidat,
         ];
+        // var_dump($riwayat);die;
         return view('home/pemilihan', $data);
     }
 }

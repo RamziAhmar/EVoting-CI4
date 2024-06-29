@@ -27,11 +27,22 @@ class PemilihanModel extends Model
             ->first();
     }
 
-    public function getRiwayat()
+    public function getList()
     {
-        return $this->join('kandidat', 'kandidat.id_pemilihan = pemilihan.id_pemilihan')
-        ->orderBy('pemilihan.id_pemilihan', 'DESC')
-        ->get()
-        ->getResult();
+        return $this->orderBy('dibuat', 'DESC')
+            ->get()
+            ->getResult();
     }
+
+    public function getPemilihan()
+    {
+        return $this->orderBy('dibuat', 'DESC');
+    }    
+    // public function getRiwayat()
+    // {
+    //     return $this->join('kandidat', 'kandidat.id_pemilihan = pemilihan.id_pemilihan')
+    //     ->orderBy('pemilihan.id_pemilihan', 'DESC')
+    //     ->get()
+    //     ->getResult();
+    // }
 }

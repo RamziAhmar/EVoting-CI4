@@ -37,7 +37,7 @@
                             <td><?= $row->nama_wakil ?></td>
                             <td><?= $row->visi ?></td>
                             <td><?= $row->misi ?></td>
-                            <td><?= $row->foto ?></td>
+                            <td><img width="100px" src="<?= base_url('image/kandidat/') . $row->foto ?>" alt=""></td>
                             <td>
                                 <button class="btn btn-warning btn-sm" data-toggle="modal"
                                     data-target="#ubah<?= $row->id_kandidat ?>"><i class="fa fa-edit"></i></button>

@@ -11,7 +11,7 @@ class UserModel extends Model
     protected $allowedFields    = ['email', 'password', 'level'];
 
     protected $validationRules  = [
-        'email' => 'required',
+        'email' => 'required|valid_email',
         'password' => 'required'
     ];
 

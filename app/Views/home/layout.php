@@ -52,9 +52,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <li class="nav-item">
                             <a href="/" class="nav-link">Beranda</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a href="/pemilihan" class="nav-link">Pemilihan</a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a href="/peserta" class="nav-link">Peserta</a>
                         </li>

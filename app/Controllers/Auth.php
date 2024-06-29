@@ -51,6 +51,7 @@ class Auth extends BaseController
             if ($data['level'] == 1) {
                 return redirect()->to('/admin');
             } else {
+                session()->setFlashdata('error', ['gagal' => 'Email atau Password Anda Salah!!']);
                 return redirect()->to('/');
             }
         } else {

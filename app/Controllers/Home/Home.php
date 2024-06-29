@@ -6,6 +6,7 @@ use App\Models\UserModel;
 use App\Models\SuaraModel;
 use App\Models\ProfileModel;
 use App\Models\KandidatModel;
+use App\Models\TerpilihModel;
 use App\Models\PemilihanModel;
 use App\Controllers\BaseController;
 use App\Models\StatusPemilihanModel;
@@ -13,7 +14,7 @@ use CodeIgniter\HTTP\ResponseInterface;
 
 class Home extends BaseController
 {
-    protected $pemilihan, $user, $profile, $kandidat, $suara, $status;
+    protected $pemilihan, $user, $profile, $kandidat, $suara, $status, $terpilih;
 
     public function __construct()
     {
@@ -22,6 +23,7 @@ class Home extends BaseController
         $this->kandidat = new KandidatModel();
         $this->status = new StatusPemilihanModel();
         $this->suara = new SuaraModel();
+        $this->terpilih = new TerpilihModel();
     }
 
     public function index()
@@ -29,9 +31,16 @@ class Home extends BaseController
         $sekarang = date('Y-m-d H:i:s');
 
         $pemilihanTerbaru = $this->pemilihan->getTerbaru();
+        if ($pemilihanTerbaru == null) {
+            $data = [
+                'title' => 'Home'
+            ];
+            return view('home/null', $data);
+        }
         $pemilihanDibuat = $pemilihanTerbaru['dibuat'];
         $pemilihanSelesai = $pemilihanTerbaru['waktu_selesai'];
         $id_pemilihan = $pemilihanTerbaru['id_pemilihan'];
+        
 
         $kandidat = $this->kandidat->where('id_pemilihan', $id_pemilihan)->findAll();
         $dataSuara = $this->suara->where('id_pemilihan', $id_pemilihan)->findAll();
@@ -66,9 +75,19 @@ class Home extends BaseController
                         'jumlah_suara' => $jumlahSuara
                     ];
                 }
-
                 $golput = $this->profile->getRow() - $this->suara->where('id_pemilihan', $id_pemilihan)->get()->getNumRows();
                 // var_dump($golput);die;
+
+                $terpilih = $this->terpilih->find($id_pemilihan);
+                if ($terpilih == null) {
+                    $dataTerpilih = [
+                        'id_pemilihan' => $id_pemilihan,
+                        'id_kandidat' => $kandidatPemenang['id_kandidat'],
+                        'perolehan_suara' => $suaraTerbanyak
+                    ];
+                    $this->terpilih->insert($dataTerpilih);
+                }
+
                 $data = [
                     'title' => 'Beranda',
                     'perolehanSuara' => $perolehanSuara,
